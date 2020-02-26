@@ -101,14 +101,16 @@ const RevealedInputWrapper = ( { isRevealed, buttonText, inputPlaceholder, link 
           {buttonText}
         </Button>
       </RevealedInput>
-      <CSSTransition
-        in={setAsRevealed && link}
-        timeout={400}
-        classNames="linkFade">
-        <InfoLinkWrapper>
-          <InfoLink>{link}</InfoLink>
-        </InfoLinkWrapper>
-      </CSSTransition>
+      {link &&
+        <CSSTransition
+          in={setAsRevealed}
+          timeout={400}
+          classNames="linkFade">
+            <InfoLinkWrapper>
+              <InfoLink>{link}</InfoLink>
+            </InfoLinkWrapper>
+        </CSSTransition>
+      }
     </>
   );
 };
